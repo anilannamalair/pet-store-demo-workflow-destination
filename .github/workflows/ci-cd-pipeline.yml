@@ -1,0 +1,20 @@
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - {name: Checkout repository, uses: actions/checkout@v2}
+    - {name: Run ./test.sh, run: ./test.sh}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - {name: Checkout repository, uses: actions/checkout@v2}
+    - {name: Run ./build.sh, run: ./build.sh}
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - {name: Checkout repository, uses: actions/checkout@v2}
+    - {name: Run ./deploy.sh, run: ./deploy.sh}
+name: CI/CD Pipeline
+'on':
+  push:
+    branches: [main]
